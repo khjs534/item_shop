@@ -35,8 +35,16 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use simple form for fast forms
+gem 'simple_form', '~> 3.5'
+
 # Use devise for Authentication
 gem 'devise', '~> 4.4'
+
+# Use rspec for tests
+gem 'rspec'
+
+gem 'awesome_print'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,6 +53,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'better_errors', '~> 2.4'
+
+  gem 'rspec-rails'
 end
 
 group :development do

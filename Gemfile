@@ -43,8 +43,10 @@ gem 'devise', '~> 4.4'
 
 # Use rspec for tests
 gem 'rspec'
-
+# Use ap for console debugging
 gem 'awesome_print'
+# Use bootstarp for default styling
+gem 'bootstrap', '~> 4.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

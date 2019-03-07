@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% if request.ssl? %>
+      <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% else %>
+      <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
   </head>
 
@@ -40,6 +47,9 @@
 
             <% if user_signed_in? %>
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:'navbar-item button is-warning' %>
+              <div class="col-xs-6 text-right">
+                <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+              </div>
 
             <% else %>
 

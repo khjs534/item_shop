@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
+<div class="col-xs-6 col-xs-offset-3">
+  <p>
+    <strong>Name:</strong>
+    <%= @item.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @item.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @item.price %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <%= link_to 'Back', items_path %>
+</div>

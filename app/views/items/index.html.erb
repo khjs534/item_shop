@@ -10,6 +10,28 @@
 
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
+    
+      <%= form_tag items_path, :method => 'get' do %>
+        <div class="col-xs-4">
+          <%= label_tag :search, 'Search' %>
+          <%= text_field_tag :search, params[:search] %>
+        </div>
+        <div class="col-xs-4 col-xs-offset-1">
+          <%= label_tag :sort, 'Sort by' %>
+          <%= select_tag :sort, options_for_select([['Price: Low to High', 'ASC'],['Price: High to Low', 'DESC']]), include_blank: true %>
+          
+        </div>
+        <div class="col-xs-1">
+          <%= submit_tag "Submit", :name => nil %>
+        </div>
+      <% end %>
+      
+      
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
       <% @items.each do |item| %>
         <%= render "item_row", item: item, order_item: @order_item %>
       <% end %>

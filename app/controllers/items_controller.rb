@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all.order("created_at desc")
+    @items = Item.search(params[:search])
+    puts ''
+    puts '$$$$$$$$$$'
+    puts params[:sort].present?
+    puts ''
+    @items = @items.order(price: params[:sort]) if params[:sort]
     @order_item = current_order.order_items.new
   end
 
@@ -51,6 +56,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :description, :price)
+      params.require(:item).permit(:name, :description, :price, :search, :sort)
     end
 end

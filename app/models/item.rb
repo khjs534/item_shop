@@ -7,4 +7,12 @@ class Item < ApplicationRecord
   validates_length_of :description, maximum: 1000
 
   validates_numericality_of :price
+
+  def self.search(query)
+    if query
+      self.where('name LIKE ?', "%#{query}%")
+    else
+      self.all
+    end
+  end
 end

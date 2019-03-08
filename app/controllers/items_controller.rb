@@ -3,10 +3,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.search(params[:search])
-    puts ''
-    puts '$$$$$$$$$$'
-    puts params[:sort].present?
-    puts ''
     @items = @items.order(price: params[:sort]) if params[:sort]
     @order_item = current_order.order_items.new
   end

@@ -15,4 +15,7 @@
   <% @order_items.each do |order_item| %>
     <%= render 'carts/cart_row', item: order_item.item, order_item: order_item, show_total: true %>
   <% end %>
+
+  <% # TODO ADD CHECKOUT BUTTON%>
+  <% # Change Order.status in that route %>
 <% end %>

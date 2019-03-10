@@ -3,4 +3,33 @@
 <% # Add list of all previous orders display and display all the Order items from the order %>
 
 <% # maybe make it expandable %>
-<%= @user.email %>
+<div>
+  <p>Email: <%= @user.email %></p>
+  
+  <% @orders.each do |order| %>
+    <div class="col-xs-12">
+      <% order.order_items.each do |order_item| %>
+        <div class="row">
+          <div class="col-xs-8">
+            <h4><%= order_item.item.name %></h4>
+          </div>
+          <div class="col-xs-4">
+            <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency order_item.unit_price %></span></h4>
+            <div class="row">
+              <div class="col-xs-4">
+                <h4 class="text-right">Quantity: <span style="color: green"><%= order_item.quantity %></span></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-xs-4 col-xs-offset-8">
+          <h4 class="text-right">Total: <span><%= order.total %></span></h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

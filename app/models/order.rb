@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   enum status: { empty: 0, incomplete: 1, complete: 2}
 
   def total
-    order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+    order_items.collect { |order_item| order_item.valid? ? (order_item.quantity * order_item.unit_price) : 0 }.sum
   end
 private
   def set_order_status

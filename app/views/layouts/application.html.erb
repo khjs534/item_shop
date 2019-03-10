@@ -36,6 +36,7 @@
             <div class="field is-grouped">
 
             <% if user_signed_in? %>
+              <%= link_to 'My Account', user_path(current_user) %>
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:'navbar-item button is-warning' %>
               <div class="col-xs-6 text-right">
                 <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>

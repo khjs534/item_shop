@@ -16,6 +16,9 @@
     <%= render 'carts/cart_row', item: order_item.item, order_item: order_item, show_total: true %>
   <% end %>
 
-  <% # TODO ADD CHECKOUT BUTTON%>
-  <% # Change Order.status in that route %>
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-10">
+      <%= button_to 'Checkout', order_path(current_order), method: :put, class: 'button is-small' %>
+    </div>
+  </div>
 <% end %>

@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   has_many :order_items
   before_create :set_order_status
   before_save :update_total
+  belongs_to :user
 
   enum status: { empty: 0, incomplete: 1, complete: 2}
 
